@@ -1,0 +1,7 @@
+metric,adf_pipeline_baseline,fabric_lakehouse_pilot,notes
+pipeline runtime (minutes),18,11,"Fabric skips the intermediate ADLS staging hop -- reads land straight into the Lakehouse"
+compute cost per run (est.),$0.42,$0.31,"Fabric capacity is pre-purchased (F-SKU); ADF uses pay-per-DIU. Compare against your actual F-SKU allocation, not list price"
+rows processed,"10,120","10,120",baseline parity check -- row counts must match before trusting the timing comparison
+data quality rejects,not tracked,"12 rows quarantined","ADF pipeline had no reject-tracking step; this is a net-new capability, not just a speed comparison"
+refresh-to-dashboard latency (minutes),42,29,"Includes Power BI dataset refresh triggered immediately after load completes"
+lines of pipeline definition,"140 (ADF JSON)","65 (PySpark notebook)","Not a perfect apples-to-apples metric, but relevant to maintainability discussion"
